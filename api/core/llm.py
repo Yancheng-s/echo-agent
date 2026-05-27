@@ -1,5 +1,5 @@
 from langchain_openai import ChatOpenAI
-from agent.core.config import llm_settings
+from core.config import llm_settings
 
 # 模型注册表：名字 → (base_url, 默认模型)
 PROVIDERS = {

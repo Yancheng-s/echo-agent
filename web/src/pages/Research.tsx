@@ -1,17 +1,12 @@
 import { useState } from 'react'
-import { useAuth } from '../hooks/useAuth'
 
 export default function Research() {
   const [query, setQuery] = useState('')
-  const logout = useAuth((s) => s.logout)
 
   return (
     <div className="app">
       <header className="header">
-        <div className="header-top">
-          <h1>Echo Agent</h1>
-          <button className="logout-btn" onClick={logout}>退出</button>
-        </div>
+        <h1>Echo Agent</h1>
         <p>Deep Research — 回声探测，深层发现</p>
       </header>
 

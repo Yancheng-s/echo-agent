@@ -9,10 +9,6 @@ router = APIRouter(tags=["websocket"])
 async def research_ws(websocket: WebSocket):
     await websocket.accept()
 
-    # TODO: 验证 token，后续 Phase 实现
-    # token = websocket.query_params.get("token")
-    # user = get_current_user(token)
-
     try:
         while True:
             data = await websocket.receive_json()

@@ -1,14 +1,12 @@
-from sqlalchemy import text
+import sys, os
+from pathlib import Path
+
+os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
+sys.path.insert(0, str(Path(__file__).parent))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database import engine, Base
-from routers import auth, ws
-
-with engine.connect() as conn:
-    conn.execute(text("CREATE SCHEMA IF NOT EXISTS account"))
-    conn.commit()
-
-Base.metadata.create_all(bind=engine)
+from routers import ws
 
 app = FastAPI(title="Echo Agent API", version="1.0.0")
 
@@ -20,7 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router, prefix="/api")
 app.include_router(ws.router)
 
 
@@ -31,4 +28,4 @@ def health():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)
