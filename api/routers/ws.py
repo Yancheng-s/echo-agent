@@ -1,6 +1,6 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, Depends
-from api.services.auth import get_current_user
-from api.database import get_db
+from services.auth import get_current_user
+from database import get_db
 
 router = APIRouter(tags=["websocket"])
 

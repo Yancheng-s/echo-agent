@@ -1,7 +1,12 @@
+from sqlalchemy import text
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.database import engine, Base
-from api.routers import auth, ws
+from database import engine, Base
+from routers import auth, ws
+
+with engine.connect() as conn:
+    conn.execute(text("CREATE SCHEMA IF NOT EXISTS account"))
+    conn.commit()
 
 Base.metadata.create_all(bind=engine)
 
@@ -22,3 +27,8 @@ app.include_router(ws.router)
 @app.get("/api/health")
 def health():
     return {"status": "ok"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
