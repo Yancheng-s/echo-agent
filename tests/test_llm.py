@@ -7,8 +7,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "api"))
 
-from core.config import llm_settings
-from core.llm import get_llm
+from llm.config import llm_settings
+from llm.registry import get_llm
 
 print(f"Provider: {llm_settings.llm_provider}")
 print(f"Model:    {llm_settings.llm_model}")

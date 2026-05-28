@@ -8,3 +8,4 @@ python-multipart
 pydantic-settings
 langchain-openai
 langchain-core
+langgraph
