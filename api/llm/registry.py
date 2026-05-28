@@ -7,6 +7,7 @@ PROVIDERS = {
     "deepseek": ("https://api.deepseek.com", "deepseek-chat"),
     "moonshot": ("https://api.moonshot.cn/v1", "moonshot-v1-8k"),
     "qwen": ("https://dashscope.aliyuncs.com/compatible-mode/v1", "qwen-plus"),
+    "baidu": ("https://qianfan.baidubce.com/v2", "ernie-5.0"),
     "openai": ("https://api.openai.com/v1", "gpt-4o"),
 }
 

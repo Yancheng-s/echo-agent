@@ -6,9 +6,11 @@ from engine.agents.analyzer import analyzer
 from engine.agents.reporter import reporter
 
 
-def should_continue(state: AgentState) -> str:
+def route_after_analysis(state: AgentState) -> str:
     last = state.analysis[-1] if state.analysis else None
-    if last and last.sufficient:
+    if not last:
+        return "researcher"
+    if last.sufficient:
         return "reporter"
     if state.iteration >= state.max_iterations:
         return "reporter"
@@ -25,7 +27,7 @@ def build_graph():
     g.set_entry_point("planner")
     g.add_edge("planner", "researcher")
     g.add_edge("researcher", "analyzer")
-    g.add_conditional_edges("analyzer", should_continue, {
+    g.add_conditional_edges("analyzer", route_after_analysis, {
         "researcher": "researcher",
         "reporter": "reporter",
     })
