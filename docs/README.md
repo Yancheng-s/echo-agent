@@ -9,3 +9,5 @@
 - [03-langsmith-tracing.md](03-langsmith-tracing.md) — LangSmith 追踪原理
 - [04-langgraph-communication.md](04-langgraph-communication.md) — LangGraph 通信机制与节点协作
 - [05-pydantic-vs-typedict.md](05-pydantic-vs-typedict.md) — Pydantic vs TypedDict vs dataclass 对比
+- [06-langgraph-state-checkpoint.md](06-langgraph-state-checkpoint.md) — LangGraph State 与 Checkpoint 机制
+- [07-langgraph-studio.md](07-langgraph-studio.md) — LangGraph Studio 与 LangGraph Server
