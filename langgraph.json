@@ -1,0 +1,10 @@
+{
+  "source": {
+    "kind": "uv",
+    "root": "."
+  },
+  "graphs": {
+    "echo_agent": "./api/engine/graph.py:build_graph"
+  },
+  "env": "./.env"
+}

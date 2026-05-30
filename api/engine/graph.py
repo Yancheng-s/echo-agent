@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from langgraph.graph import StateGraph, END
 from engine.state import AgentState
 from engine.agents.planner import planner
